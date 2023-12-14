@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#SBATCH --job-name=llava_1
+#SBATCH --partition=learnai4rl
+### Note: --gres=gpu:x should equal to ntasks-per-node
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=8
+#SBATCH --chdir=./
+#SBATCH --output=./vllm/out/logs/job_%j_infer1.out
+
+### the command to run
+srun python -m llava.eval.run_llava_in_loop \
+    --model-path $1 \
+    --image-dir $2 \
+    --action-label $3 \
+    --query "How does the person properly {} that is displayed in the video frame?" \
+    --save-path $4 \
+    --save-image-feature-path $5 \
+    --save-text-feature-path $6 \
+    --seed $7 \
+    --num-chunks 5 \
+    --chunk-idx 1

@@ -1,0 +1,94 @@
+# File modified by authors of LEGO from original (https://github.com/CompVis/stable-diffusion and https://github.com/timothybrooks/instruct-pix2pix).
+
+model:
+  base_learning_rate: 1.0e-04
+  target: ldm.models.diffusion.ddpm_egogen.LatentDiffusion  # [Remember to check]
+  params:
+    linear_start: 0.00085
+    linear_end: 0.0120
+    num_timesteps_cond: 1
+    log_every_t: 200
+    timesteps: 1000
+    first_stage_key: edited
+    cond_stage_key: edit
+    image_size: 16
+    aspect_ratio: 1.0
+    channels: 4
+    cond_stage_trainable: false
+    conditioning_key: hybrid
+    monitor: val/loss_simple_ema
+    scale_factor: 0.18215
+    use_ema: true
+    load_ema: true
+
+    scheduler_config:
+      target: ldm.lr_scheduler.LambdaLinearScheduler
+      params:
+        warm_up_steps: [ 0 ]
+        cycle_lengths: [ 10000000000000 ] # incredibly large number to prevent corner cases
+        f_start: [ 1.e-6 ]
+        f_max: [ 1. ]
+        f_min: [ 1. ]
+
+    unet_config:
+      target: ldm.modules.diffusionmodules.openaimodel.UNetModel
+      params:
+        image_size: 32
+        in_channels: 8
+        out_channels: 4
+        model_channels: 320
+        attention_resolutions: [ 4, 2, 1 ]
+        num_res_blocks: 2
+        channel_mult: [ 1, 2, 4, 4 ]
+        num_heads: 8
+        use_spatial_transformer: True
+        transformer_depth: 1
+        context_dim: 768
+        use_checkpoint: True
+        legacy: False
+
+    first_stage_config:
+      target: ldm.models.autoencoder.AutoencoderKL
+      params:
+        embed_dim: 4
+        monitor: val/rec_loss
+        ddconfig:
+          double_z: true
+          z_channels: 4
+          resolution: 256
+          in_channels: 3
+          out_ch: 3
+          ch: 128
+          ch_mult:
+          - 1
+          - 2
+          - 4
+          - 4
+          num_res_blocks: 2
+          attn_resolutions: []
+          dropout: 0.0
+        lossconfig:
+          target: torch.nn.Identity
+
+    cond_stage_config:
+      target: ldm.modules.encoders.modules.FrozenCLIPEmbedder
+
+data:
+  metadata_path: /data/home/bolinlai/Projects/Preprocess/epickitchen_metadata.json
+  target: egogen_dataset.EgoGenDatasetEval
+  params:
+    data_path: /fsx/bolinlai/EgoGen/epickitchen/val
+    edit_path: /data/home/bolinlai/Projects/Preprocess/epickitchen_val.json
+    additional_cross_attn: True
+    additional_cond_path: {llava_image: /fsx/bolinlai/LLaVA_Feature/epickitchen/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune/val,
+                           llava_text: /fsx/bolinlai/LLaVA_Feature/epickitchen/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune/val}
+    split: 'test'
+    res: 256
+    text_prompt_key: llava_forecast_finetune
+  
+inference:
+  output_path: 'logs'
+  steps: 100
+  scales_img: [1.5]
+  scales_txt: [7.5]
+  seed: 0

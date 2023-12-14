@@ -1,0 +1,38 @@
+albumentations==0.4.3
+-e git+https://github.com/openai/CLIP.git@a1d071733d7111c9c014f024669f959182114e33#egg=clip
+datasets==2.8.0
+diffusers==0.17.1
+einops==0.3.0
+fairscale==0.4.13
+gradio==3.35.2
+huggingface-hub==0.16.2
+imageio==2.9.0
+imageio-ffmpeg==0.4.2
+invisible-watermark==0.1.5
+k-diffusion @ git+https://github.com/crowsonkb/k-diffusion.git@c9fe758757e022f05ca5a53fa8fac28889e4f1cf
+kornia==0.6.0
+lpips==0.1.4
+matplotlib==3.7.2
+numpy==1.24.4
+omegaconf==2.1.1
+openai==0.27.8
+opencv-python==4.1.2.30
+pandas==2.0.3
+Pillow==9.4.0
+pudb==2019.2
+pytorch-lightning==1.4.2
+scikit-image==0.20.0
+scikit-learn==1.3.0
+scipy==1.9.1
+seaborn==0.12.2
+streamlit==1.24.0
+-e git+https://github.com/CompVis/taming-transformers.git@3ba01b241669f5ade541ce990f7650a3b8f65318#egg=taming_transformers
+test-tube==0.7.5
+timm==0.9.5
+torch==1.11.0
+torch-fidelity==0.3.0
+torchmetrics==0.6.0
+torchvision==0.12.0
+tqdm==4.65.0
+transformers==4.19.2
+wandb==0.15.8
