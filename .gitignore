@@ -28,7 +28,10 @@ venv.bak/
 *.pt
 wandb/
 vllm/out/
+!vllm/out/.gitkeep
 logs/
 src/
 metrics/blip/pretrained/
 metrics/egovlp/pretrained/
+!metrics/blip/pretrained/.gitkeep
+!metrics/egovlp/pretrained/.gitkeep
