@@ -5,8 +5,8 @@ model_path='/fsx/bolinlai/Models/llava/Ego4D/llava-llama-2-13b-chat-forecasting-
 image_dir='/fsx/bolinlai/EgoGen/ego4d.fho/val'
 action_label='/data/home/bolinlai/Projects/Preprocess/ego4d_val.json'
 save_path='./vllm/out/Ego4D/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val'
-save_image_feature_path='/fsx/bolinlai/LLaVA_Feature/ego4d.fho.rep/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val'
-save_text_feature_path='/fsx/bolinlai/LLaVA_Feature/ego4d.fho.rep/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val'
+save_image_feature_path='/fsx/bolinlai/LLaVA_Feature/ego4d.fho/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val'
+save_text_feature_path='/fsx/bolinlai/LLaVA_Feature/ego4d.fho/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val'
 seed=42
 
 echo Path to checkpoint:$model_path
