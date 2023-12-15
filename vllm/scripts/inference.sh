@@ -20,8 +20,8 @@ python -m llava.eval.run_llava_in_loop \
 #     --action-label /data/home/bolinlai/Projects/Preprocess/epickitchen_val.json \
 #     --query "How does the person properly {} that is displayed in the video frame?" \
 #     --save-path ./vllm/out/EpicKitchen/llava-llama-2-13b-chat-forecasting-finetune-lastckpt/val \
-#     --save-image-feature-path /fsx/bolinlai/LLaVA_Feature/epickitchen.rep/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune/val \
-#     --save-text-feature-path /fsx/bolinlai/LLaVA_Feature/epickitchen.rep/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune/val \
+#     --save-image-feature-path /fsx/bolinlai/LLaVA_Feature/epickitchen/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune/val \
+#     --save-text-feature-path /fsx/bolinlai/LLaVA_Feature/epickitchen/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune/val \
 #     --seed 42 \
 #     --num-chunks 5 \
 #     --chunk-idx 1
