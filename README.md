@@ -26,3 +26,15 @@ ToDo:
 - Dataset
 - [Train](#train)
 - [Evaluation](#evaluation)
+
+## Setup
+
+Due to the incompatibility of VLLM and LDM packages, we use two environments for each model.
+
+Install all dependencies with:
+
+```shell
+conda env create -f vllm_env.yaml  # set up environment for vllm
+conda env create -f ldm_env.yaml  # set up environment for ldm
+```
+
