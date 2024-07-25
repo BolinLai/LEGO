@@ -2,7 +2,7 @@
 
 ### [Project Page](https://bolinlai.github.io/Lego_EgoActGen/) | [Paper](https://arxiv.org/pdf/2312.03849) | [Dataset](https://www.dropbox.com/scl/fo/4m0v9oy753aimas8rz6v1/ANoJhZQz2BdcGIVLzUsHdP0?rlkey=o8saklcszfc098mjnpid767ic&dl=0)
 
-#### <font color=orange>**Our dataset has been released!**</font>
+#### <font color=red>**Our dataset has been released!**</font>
 
 Thank you for your interest in our work! The first version of the code has been released. We are editing the README instructions.
 
