@@ -1,14 +1,14 @@
 # LEGO: Learning EGOcentric Action Frame Generation via Visual Instruction Tuning
 
-### [Project Page](https://bolinlai.github.io/Lego_EgoActGen/) | [Paper](https://arxiv.org/pdf/2312.03849) | Dataset
+### [Project Page](https://bolinlai.github.io/Lego_EgoActGen/) | [Paper](https://arxiv.org/pdf/2312.03849) | [Dataset](https://www.dropbox.com/scl/fo/4m0v9oy753aimas8rz6v1/ANoJhZQz2BdcGIVLzUsHdP0?rlkey=o8saklcszfc098mjnpid767ic&dl=0)
 
-Thank you for your interest in our work. We are still looking for the best way to share the dataset.
+#### <font color=orange>**Our dataset has been released!**</font>
 
-The first version of the code has been released. We are editing the README instructions.
+Thank you for your interest in our work! The first version of the code has been released. We are editing the README instructions.
 
 ToDo:
 
-- [ ] Dataset
+- [x] Dataset
 
 - [x] Codes
 
@@ -38,3 +38,7 @@ conda env create -f vllm_env.yaml  # set up environment for vllm
 conda env create -f ldm_env.yaml  # set up environment for ldm
 ```
 
+Download the pretrained models by running:
+```shell
+
+```
