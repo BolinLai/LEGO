@@ -23,10 +23,16 @@ ToDo:
 ## Contents
 - [Setup](#setup)
 - [Dataset](#dataset)
-- [GPT-Curated Data (Optional)](#gpt-curated-data)
+- [GPT-Curated Data (Optional)](#gpt-curated-data-optional)
 - [VLLM Features](#vllm-features)
 - [Model Weights](#model-weights)
 - [Train and Inference](#train-and-inference)
+  - [VLLM Training](#vllm-training)
+  - [VLLM Inference](#vllm-inference)
+  - [LDM Training](#ldm-training)
+  - [LDM Inference](#ldm-inference)
+- [Metrics](#metrics)
+- [BibTex](#bibtex)
 
 
 
@@ -118,7 +124,15 @@ We train the VLLM and LDM components separately. Both of them are trained on 8x4
 
 ### VLLM Training
 
-Train VLLM on Ego4D. Before running the script, you have to update a bunch of paths in `vllm/scripts/finetune_ego4d.sh` to your local paths where you download the data and checkpoints in above steps.
+Activate `vllm` virtual environment.
+
+```shell
+conda activate vllm
+```
+
+**Train VLLM on Ego4D**
+
+Before running the script, you have to update a bunch of paths in `vllm/scripts/finetune_ego4d.sh` to your local paths where you download the data and checkpoints in above steps.
 
 `--model_name_or_path`: The path of pretrained VLLM checkpoint.
 
@@ -134,13 +148,21 @@ Then run the command below.
 bash vllm/scripts/finetune_ego4d.sh
 ```
 
-Train VLLM on Epic-Kitchens. Similarly, you need to update the same paths in `vllm/scripts/finetune_epickitchen.sh` as listed above.
+**Train VLLM on Epic-Kitchens** 
+
+Similarly, you need to update the same paths in `vllm/scripts/finetune_epickitchen.sh` as listed above.
 
 ```shell
 bash vllm/scripts/finetune_epickitchen.sh
 ```
 
 ### VLLM Inference
+
+Activate `vllm` virtual environment.
+
+```shell
+conda activate vllm
+```
 
 Run VLLM inference on Ego4D or Epic-Kitchens. To speed up inference, we divide the data into five groups and run inference on them separately.
 
@@ -201,19 +223,69 @@ python vllm/scripts/merge_inference_results.py
 
 ### LDM Training
 
-Train LDM on Ego4D.
+Activate `ldm` virtual environment.
+
+```shell
+conda activate ldm
+```
+
+**Train LDM on Ego4D** 
+
+Before launching the job, you have to update the paths in `configs/train_ego4d.yaml`.
+
+`model.params.ckpt_path`: The path of pretrained latent diffusion model weights.
+
+`data.params.train.params.data_path`: The path of Ego4D video frames in training set.
+
+`data.params.train.params.data_path`: The path of Ego4D action descriptions in training set (i.e., `ego4d_train.json` downloaded with video frames).
+
+`data.params.train.params.additional_cond_path`: The paths of VLLM image and text features in training set.
+
+`data.params.validation.params.data_path`: The path of Ego4D video frames in val set.
+
+`data.params.validation.params.data_path`: The path of Ego4D action descriptions in val set (i.e., `ego4d_val.json` downloaded with video frames).
+
+`data.params.validation.params.additional_cond_path`: The paths of VLLM image and text features in val set.
+
+Then run the command below.
 
 ```shell
 python main.py --name lego_ego4d --base configs/train_ego4d.yaml --train --gpus 0,1,2,3,4,5,6,7
 ```
 
-Train LDM on Epic-Kitchens.
+**Train LDM on Epic-Kitchens**
+
+Similarly, update the corresponding paths in `configs/train_kitchen.yaml` as listed above. Then run the following command.
 
 ```shell
 python main.py --name lego_epickitchens --base configs/train_kitchen.yaml --train --gpus 0,1,2,3,4,5,6,7
 ```
 
+### LDM Inference
 
+Activate `ldm` virtual environment.
+
+```shell
+conda activate ldm
+```
+
+To speed up inference, we divide the data into eight groups and run inference on them separately. Similar to training, you need to update the paths in `configs/generate_ego4d.yaml` and `configs/generate_kitchen.yaml` for Ego4D and Epic-Kitchens inference, respectively.
+
+**Run LDM inference on Ego4D**
+
+(1) Use Slurm
+
+```
+bash test_ego4d.sh logs/train_ego4d_llava_img_posttxt2sa/checkpoints/trainstep_checkpoints/epoch\=000130-step\=000010999.ckpt
+```
+
+**Run LDM inference on Epic-Kitchens**
+
+(1) Use Slurm
+
+```
+bash test_epickitchen.sh logs/train_ego4d_llava_img_posttxt2sa/checkpoints/trainstep_checkpoints/epoch\=000130-step\=000010999.ckpt
+```
 
 ## BibTex
 
