@@ -76,7 +76,7 @@ def eval_model(args):
 
     model_name = get_model_name_from_path(args.model_path)
     # Add 'llava' in the model name if you want to do inference without finetune ----------
-    model_name += '-llava-llama-2'
+    # model_name += '-llava-llama-2'
     # ----------------------------------------------------------------------------------
     tokenizer, model, image_processor, context_len = load_pretrained_model(args.model_path, args.model_base, model_name, args.load_8bit, args.load_4bit)
 
@@ -97,7 +97,7 @@ def eval_model(args):
     with open(args.action_label, 'r') as infile:
         edits = json.load(infile)
 
-    nltk.data.path.append('/data/home/bolinlai/Projects/nltk_data')
+    nltk.download('wordnet')
     res = dict()
 
     clips = get_chunk(list(edits.keys()), args.num_chunks, args.chunk_idx-1)

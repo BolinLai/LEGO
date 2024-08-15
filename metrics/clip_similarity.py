@@ -13,7 +13,7 @@ class ClipSimilarity(nn.Module):
         assert name in ("RN50", "RN101", "RN50x4", "RN50x16", "RN50x64", "ViT-B/32", "ViT-B/16", "ViT-L/14", "ViT-L/14@336px")  # fmt: skip
         self.size = {"RN50x4": 288, "RN50x16": 384, "RN50x64": 448, "ViT-L/14@336px": 336}.get(name, 224)
 
-        self.model, _ = clip.load(name, device="cpu", download_root="./")
+        self.model, _ = clip.load(name, device="cpu", download_root="./metrics/")
         self.model.eval().requires_grad_(False)
 
         self.register_buffer("mean", torch.tensor((0.48145466, 0.4578275, 0.40821073)))

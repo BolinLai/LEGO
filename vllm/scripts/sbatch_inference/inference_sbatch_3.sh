@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#SBATCH --job-name=llava_3
-#SBATCH --partition=learnai4rl
-### Note: --gres=gpu:x should equal to ntasks-per-node
+#SBATCH --job-name=vllm_3
+#SBATCH --account genai_interns
+#SBATCH --qos genai_interns
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --gres=gpu:1
+#SBATCH --ntasks=1  # should be equal to --nodes
+#SBATCH --gpus-per-node=1
 #SBATCH --cpus-per-task=8
 #SBATCH --chdir=./
 #SBATCH --output=./vllm/out/logs/job_%j_infer3.out

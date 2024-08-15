@@ -14,5 +14,5 @@ def merge_outputs(source_path, save_path):
 
 
 if __name__ == "__main__":
-    merge_outputs(source_path="./vllm/out/Ego4D/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val", 
-                  save_path="./vllm/out/Ego4D/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-val.json")
+    merge_outputs(source_path="/fsx-project/bolinlai/Release/vllm_output/epickitchen/llava-llama-2-13b-chat-forecasting-finetune/val", 
+                  save_path="/fsx-project/bolinlai/Release/vllm_output/epickitchen/llava-llama-2-13b-chat-forecasting-finetune/llava-llama-2-13b-chat-forecasting-finetune-val.json")

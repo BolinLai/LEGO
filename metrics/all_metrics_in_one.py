@@ -23,6 +23,59 @@ from blip.blip import blip_decoder
 from pytorch_lightning import seed_everything
 
 
+def download_weights_for_metrics():
+    url = "https://www.dropbox.com/scl/fi/b8gl1w5eotn498yn3tdjl/metric_pretrained.zip?rlkey=gjrj0izhycmj1imloeh3nsv8r&st=ilmbf8he&dl=1"
+
+    exists = {
+        'jx_vit_base_p16_224-80ecf9dd.pth': False,
+        'distilbert-base-uncased': False,
+        'egovlp.pth': False, 
+        'epic_mir_plus.pth': False,
+        'model_base_caption_capfilt_large.pth': False,
+        'model_large_caption.pth': False
+    }
+    
+    if os.path.exists('metrics/egovlp/pretrained/jx_vit_base_p16_224-80ecf9dd.pth'):
+        exists['jx_vit_base_p16_224-80ecf9dd.pth'] = True
+    if os.path.exists('metrics/egovlp/pretrained/distilbert-base-uncased'):
+        exists['distilbert-base-uncased'] = True
+    if os.path.exists('metrics/egovlp/pretrained/egovlp.pth'):
+        exists['egovlp.pth'] = True
+    if os.path.exists('metrics/egovlp/pretrained/epic_mir_plus.pth'):
+        exists['epic_mir_plus.pth'] = True
+    if os.path.exists('metrics/blip/pretrained/model_base_caption_capfilt_large.pth'):
+        exists['model_base_caption_capfilt_large.pth'] = True
+    if os.path.exists('metrics/blip/pretrained/model_large_caption.pth'):
+        exists['model_large_caption.pth'] = True
+    
+    download = not (exists['jx_vit_base_p16_224-80ecf9dd.pth'] and exists['distilbert-base-uncased'] and exists['egovlp.pth'] \
+            and exists['epic_mir_plus.pth'] and exists['model_base_caption_capfilt_large.pth'] and exists['model_large_caption.pth'])
+    
+    if download is True:
+        print('Model weights for metrics are missing. Start downloading...')
+        commands = [
+            f'wget -O tmp/metric_pretrained.zip "{url}"',
+            'unzip tmp/metric_pretrained.zip'
+        ]
+        if exists['jx_vit_base_p16_224-80ecf9dd.pth'] is False:
+            commands.append('mv tmp/metric_pretrained/jx_vit_base_p16_224-80ecf9dd.pth metrics/egovlp/pretrained/')
+        if exists['distilbert-base-uncased'] is False:
+            commands.append('mv tmp/metric_pretrained/distilbert-base-uncased metrics/egovlp/pretrained/')
+        if exists['egovlp.pth'] is False:
+            commands.append('mv tmp/metric_pretrained/egovlp.pth metrics/egovlp/pretrained/')
+        if exists['epic_mir_plus.pth'] is False:
+            commands.append('mv tmp/metric_pretrained/epic_mir_plus.pth metrics/egovlp/pretrained/')
+        if exists['model_base_caption_capfilt_large.pth'] is False:
+            commands.append('mv tmp/metric_pretrained/model_base_caption_capfilt_large.pth metrics/blip/pretrained/')
+        if exists['model_large_caption.pth'] is False:
+            commands.append('mv tmp/metric_pretrained/model_large_caption.pth metrics/blip/pretrained/')
+        
+        for cmd in commands:
+            os.system(cmd)
+    
+        os.system('rm -rf ./tmp')
+
+
 egovlp_args = {
     'ego4d':{
         "video_params": {
@@ -411,24 +464,26 @@ if __name__ == '__main__':
     parser.add_argument("--dataset", type=str, help="ego4d or epickitchen")
     parser.add_argument("--gen_path", type=str, help="Path to generated images, e.g. /fsx/bolinlai/Models/instruct_pix2pix/train_ego4d_llava_txt_mid/analysis/epoch=000119-step=000009999-e=0-s=100-si=1.5/images")
     parser.add_argument("--llava_key", type=str, default='llava_forecast_finetune')
+    parser.add_argument("--gt_path", type=str, help="Path to val_for_metric")
+    parser.add_argument("--edit_file", type=str, help="Path to action label")
     args = parser.parse_args()
 
     assert args.dataset in ['ego4d', 'epickitchen']
-    gt_path = '/fsx/bolinlai/EgoGen/ego4d.fho/val_gt_for_metric' if args.dataset == 'ego4d' else '/fsx/bolinlai/EgoGen/epickitchen/val_gt_for_metric'  # [Change to your path of GT]
-    edit_file = '/data/home/bolinlai/Projects/Preprocess/ego4d_val.json' if args.dataset == 'ego4d' else '/data/home/bolinlai/Projects/Preprocess/epickitchen_val.json'  # [Change to your path of the editing file]
+    # gt_path = '/fsx/bolinlai/EgoGen/ego4d.fho/val_gt_for_metric' if args.dataset == 'ego4d' else '/fsx/bolinlai/EgoGen/epickitchen/val_gt_for_metric'  # [Change to your path of GT]
+    # edit_file = '/data/home/bolinlai/Projects/Preprocess/ego4d_val.json' if args.dataset == 'ego4d' else '/data/home/bolinlai/Projects/Preprocess/epickitchen_val.json'  # [Change to your path of the editing file]
 
     print(f'Running metrics for {args.dataset}.')
-    print(f'GT path is {gt_path}.')
-    print(f'Edit file is {edit_file}.')
+    print(f'GT path is {args.gt_path}.')
+    print(f'Edit file is {args.edit_file}.')
     print(f'LLaVA key is {args.llava_key}')
 
     seed_everything(42)
 
     compute_metrics(
         dataset=args.dataset,
-        gt_path=gt_path,
+        gt_path=args.gt_path,
         gen_path=args.gen_path,
-        edit_file=edit_file,
+        edit_file=args.edit_file,
         llava_key=args.llava_key,
         cmpt_fid=True,
         cmpt_psnr=True,

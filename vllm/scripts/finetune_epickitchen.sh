@@ -10,16 +10,16 @@ export PYTHONPATH=$PYTHONPATH:./vllm
 # Finetune LLM from released checkpoint
 deepspeed vllm/llava/train/train_mem.py \
     --deepspeed vllm/scripts/zero3_offload.json \
-    --model_name_or_path /checkpoints/bolinlai/llava/released/models--liuhaotian--llava-llama-2-13b-chat-lightning-preview/snapshots/bcda0227a7f371117a195ef0af88c1616a830520 \
+    --model_name_or_path /fsx-project/bolinlai/Release/checkpoints/pretrained/llava/models--liuhaotian--llava-llama-2-13b-chat-lightning-preview/snapshots/bcda0227a7f371117a195ef0af88c1616a830520 \
     --version $PROMPT_VERSION \
-    --data_path /data/home/bolinlai/Projects/Preprocess/epickitchen_for_tuning_forecasting.json \
-    --image_folder /fsx/bolinlai/EgoGen/epickitchen/train \
+    --data_path /fsx-project/bolinlai/Release/curation_from_gpt/epickitchen_for_tuning_forecasting.json \
+    --image_folder /fsx-project/bolinlai/Release/dataset/EgoGen/epickitchen/train \
     --vision_tower openai/clip-vit-large-patch14 \
     --mm_vision_select_layer -2 \
     --mm_use_im_start_end False \
     --mm_use_im_patch_token False \
     --bf16 True \
-    --output_dir /fsx/bolinlai/Models/llava/EpicKitchen/llava-$MODEL_VERSION-forecasting-finetune \
+    --output_dir /fsx-project/bolinlai/Release/VLLM/epickitchen/llava-$MODEL_VERSION-forecasting-finetune \
     --num_train_epochs 3 \
     --per_device_train_batch_size 16 \
     --per_device_eval_batch_size 4 \

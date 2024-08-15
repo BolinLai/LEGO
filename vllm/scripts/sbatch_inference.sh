@@ -1,12 +1,12 @@
 #!/bin/bash
 export PYTHONPATH=$PYTHONPATH:./vllm
 
-model_path='/fsx/bolinlai/Models/llava/Ego4D/llava-llama-2-13b-chat-forecasting-finetune/checkpoint-450'
-image_dir='/fsx/bolinlai/EgoGen/ego4d.fho/val'
-action_label='/data/home/bolinlai/Projects/Preprocess/ego4d_val.json'
-save_path='./vllm/out/Ego4D/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val'
-save_image_feature_path='/fsx/bolinlai/LLaVA_Feature/ego4d.fho/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val'
-save_text_feature_path='/fsx/bolinlai/LLaVA_Feature/ego4d.fho/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val'
+model_path='/fsx-project/bolinlai/Release/checkpoints/VLLM/ego4d/llava-llama-2-13b-chat-forecasting-finetune'
+image_dir='/fsx-project/bolinlai/Release/dataset/EgoGen/ego4d.fho/val'
+action_label='/fsx-project/bolinlai/Release/dataset/ego4d_val.json'
+save_path='/fsx-project/bolinlai/Release/vllm_output/ego4d/llava-llama-2-13b-chat-forecasting-finetune/val'
+save_image_feature_path='/fsx-project/bolinlai/Release/vllm_features/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune/val'
+save_text_feature_path='/fsx-project/bolinlai/Release/vllm_features/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune/val'
 seed=42
 
 echo Path to checkpoint:$model_path

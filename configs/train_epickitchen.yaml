@@ -4,7 +4,7 @@ model:
   base_learning_rate: 1.0e-04
   target: ldm.models.diffusion.ddpm_egogen.LatentDiffusion
   params:
-    ckpt_path: /checkpoints/bolinlai/stable_diffusion/models/ldm/stable-diffusion-v1/v1-5-pruned-emaonly.ckpt
+    ckpt_path: /fsx-project/bolinlai/Release/checkpoints/pretrained/stable_diffusion/models/ldm/stable-diffusion-v1/v1-5-pruned-emaonly.ckpt  # update to your own path
     linear_start: 0.00085
     linear_end: 0.0120
     num_timesteps_cond: 1
@@ -78,37 +78,37 @@ data:
   target: main.DataModuleFromConfig
   params:
     batch_size: 32
-    num_workers: 8
+    num_workers: 2
     train:
       target: egogen_dataset.EgoGenDataset
       params:
-        data_path: /fsx/bolinlai/EgoGen/epickitchen/train
-        edit_path: /data/home/bolinlai/Projects/Preprocess/epickitchen_train.json
+        data_path: /fsx-project/bolinlai/Release/dataset/EgoGen/epickitchen/train  # update to your own path
+        edit_path: /fsx-project/bolinlai/Release/dataset/epickitchen_train.json  # update to your own path
         split: train
-        min_resize_res: 256  # height
-        max_resize_res: 256  # height
-        crop_res: 256  # height
+        min_resize_res: 256
+        max_resize_res: 256
+        crop_res: 256
         aspect_ratio: 1.0
         flip_prob: 0.5
         text_prompt_key: llava_forecast_finetune
         additional_cross_attn: True
-        additional_cond_path: {llava_image: /fsx/bolinlai/LLaVA_Feature/epickitchen/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune/train,
-                               llava_text: /fsx/bolinlai/LLaVA_Feature/epickitchen/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune/train}
+        additional_cond_path: {llava_image: /fsx-project/bolinlai/Release/vllm_features/epickitchen/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune/train,  # update to your own path
+                               llava_text: /fsx-project/bolinlai/Release/vllm_features/epickitchen/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune/train}  # update to your own path
 
     validation:
       target: egogen_dataset.EgoGenDataset
       params:
-        data_path: /fsx/bolinlai/EgoGen/epickitchen/val
-        edit_path: /data/home/bolinlai/Projects/Preprocess/epickitchen_val.json
+        data_path: /fsx-project/bolinlai/Release/dataset/EgoGen/epickitchen/val  # update to your own path
+        edit_path: /fsx-project/bolinlai/Release/dataset/epickitchen_val.json  # update to your own path
         split: val
-        min_resize_res: 256  # height
-        max_resize_res: 256  # height
-        crop_res: 256  # height
+        min_resize_res: 256
+        max_resize_res: 256
+        crop_res: 256
         aspect_ratio: 1.0
         text_prompt_key: llava_forecast_finetune
         additional_cross_attn: True
-        additional_cond_path: {llava_image: /fsx/bolinlai/LLaVA_Feature/epickitchen/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune/val,
-                               llava_text: /fsx/bolinlai/LLaVA_Feature/epickitchen/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune/val}
+        additional_cond_path: {llava_image: /fsx-project/bolinlai/Release/vllm_features/epickitchen/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune/val,  # update to your own path
+                               llava_text: /fsx-project/bolinlai/Release/vllm_features/epickitchen/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune/val}  # update to your own path
 
 lightning:
   callbacks:

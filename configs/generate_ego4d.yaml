@@ -2,7 +2,7 @@
 
 model:
   base_learning_rate: 1.0e-04
-  target: ldm.models.diffusion.ddpm_egogen.LatentDiffusion  # [Remember to check]
+  target: ldm.models.diffusion.ddpm_egogen.LatentDiffusion
   params:
     linear_start: 0.00085
     linear_end: 0.0120
@@ -74,14 +74,14 @@ model:
       target: ldm.modules.encoders.modules.FrozenCLIPEmbedder
 
 data:
-  metadata_path: /data/home/bolinlai/Projects/Preprocess/ego4d_metadata.json
+  metadata_path: /fsx-project/bolinlai/Release/dataset/ego4d_metadata.json  # update to your own path
   target: egogen_dataset.EgoGenDatasetEval
   params:
-    data_path: /fsx/bolinlai/EgoGen/ego4d.fho/val
-    edit_path: /data/home/bolinlai/Projects/Preprocess/ego4d_val.json
+    data_path: /fsx-project/bolinlai/Release/dataset/EgoGen/ego4d.fho/val  # update to your own path
+    edit_path: /fsx-project/bolinlai/Release/dataset/ego4d_val.json  # update to your own path
     additional_cross_attn: True
-    additional_cond_path: {llava_image: /fsx/bolinlai/LLaVA_Feature/ego4d.fho/llava_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val,
-                           llava_text: /fsx/bolinlai/LLaVA_Feature/ego4d.fho/llava_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val}
+    additional_cond_path: {llava_image: /fsx-project/bolinlai/Release/vllm_features/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val,  # update to your own path
+                           llava_text: /fsx-project/bolinlai/Release/vllm_features/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450/val}  # update to your own path
     split: 'test'
     res: 256
     text_prompt_key: llava_forecast_finetune
