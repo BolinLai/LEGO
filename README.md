@@ -123,8 +123,8 @@ If you download from the link, please unzip each zip file in the same folder by 
 
 |      | Ego4D | Epic-Kitchens |
 |:----:|:----: | :----:        |
-|VLLM  | [download](https://www.dropbox.com/scl/fi/7ielqu0joqu3ftr7r7pm7/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=tnnhskshluoizkro1c6rrpo83&st=19yhttf3&dl=0)  |    [download](https://www.dropbox.com/scl/fi/x3but1rmnau4w05utrx0e/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=x2yotqy0auvk5mmwppmamdx1s&st=918bxwnr&dl=0)       |
-|LDM   | download  |    [download](https://www.dropbox.com/scl/fi/f6m6l774dvexy3diklal9/epickitchen_diffusion_with_vllm_feature.ckpt?rlkey=qc978bzt13v7eoh2ajm2o96da&st=vxmawpr9&dl=0)       |
+|VLLM  | [download](https://www.dropbox.com/scl/fi/7ielqu0joqu3ftr7r7pm7/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=tnnhskshluoizkro1c6rrpo83&st=19yhttf3&dl=0)  |    [download](https://www.dropbox.com/scl/fi/x3but1rmnau4w05utrx0e/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=x2yotqy0auvk5mmwppmamdx1s&st=918bxwnr&dl=0)    |
+|LDM   | [download](https://www.dropbox.com/scl/fi/w3t25fcd6iffm4j073aqt/ego4d_diffusion_with_vllm_feature.ckpt?rlkey=hhxc6450sul85gvkx4jxe1raa&st=g4mbfipo&dl=0)           |    [download](https://www.dropbox.com/scl/fi/f6m6l774dvexy3diklal9/epickitchen_diffusion_with_vllm_feature.ckpt?rlkey=qc978bzt13v7eoh2ajm2o96da&st=vxmawpr9&dl=0)       |
 
 
 ## Train and Inference
