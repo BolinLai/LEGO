@@ -32,6 +32,7 @@ wandb/
 vllm/out/
 !vllm/out/.gitkeep
 logs/
+!logs/.gitkeep
 src/
 metrics/blip/pretrained/
 metrics/egovlp/pretrained/
