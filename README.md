@@ -40,7 +40,7 @@ ToDo:
   - [LDM Training](#ldm-training)
   - [LDM Inference](#ldm-inference)
 - [Metrics](#metrics)
-- [BibTex](#bibtex)
+- [BibTeX](#bibtex)
 - [Acknowledge](#acknowledgement)
 
 
@@ -121,10 +121,15 @@ If you download from the link, please unzip each zip file in the same folder by 
 
 ## Model Weights
 
+Please download our released model weights via the links below. 
+
 |      | Ego4D | Epic-Kitchens |
 |:----:|:----: | :----:        |
-|VLLM  | [download](https://www.dropbox.com/scl/fi/7ielqu0joqu3ftr7r7pm7/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=tnnhskshluoizkro1c6rrpo83&st=19yhttf3&dl=0)  |    [download](https://www.dropbox.com/scl/fi/x3but1rmnau4w05utrx0e/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=x2yotqy0auvk5mmwppmamdx1s&st=918bxwnr&dl=0)    |
-|LDM   | [download](https://www.dropbox.com/scl/fi/w3t25fcd6iffm4j073aqt/ego4d_diffusion_with_vllm_feature.ckpt?rlkey=hhxc6450sul85gvkx4jxe1raa&st=g4mbfipo&dl=0)           |    [download](https://www.dropbox.com/scl/fi/f6m6l774dvexy3diklal9/epickitchen_diffusion_with_vllm_feature.ckpt?rlkey=qc978bzt13v7eoh2ajm2o96da&st=vxmawpr9&dl=0)       |
+|VLLM  | [download](https://www.dropbox.com/scl/fi/7ielqu0joqu3ftr7r7pm7/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=tnnhskshluoizkro1c6rrpo83&st=19yhttf3&dl=0)  |  [download](https://www.dropbox.com/scl/fi/x3but1rmnau4w05utrx0e/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=x2yotqy0auvk5mmwppmamdx1s&st=918bxwnr&dl=0)  |
+|LDM   | [download](https://www.dropbox.com/scl/fi/w3t25fcd6iffm4j073aqt/ego4d_diffusion_with_vllm_feature.ckpt?rlkey=hhxc6450sul85gvkx4jxe1raa&st=g4mbfipo&dl=0)           |  [download](https://www.dropbox.com/scl/fi/f6m6l774dvexy3diklal9/epickitchen_diffusion_with_vllm_feature.ckpt?rlkey=qc978bzt13v7eoh2ajm2o96da&st=vxmawpr9&dl=0)     |
+|LDM (scaleup) | [download](https://www.dropbox.com/scl/fi/3nl3k7jtezc903wcxir8t/scaleup_training_ego4d_eval.ckpt?rlkey=wli03qz34edic9b76f419cwzw&st=22gkbi9i&dl=0)         | [download](https://www.dropbox.com/scl/fi/f84m0poy22corzdq3n9xa/scaleup_training_epickitchen_eval.ckpt?rlkey=ov9q6a1dm3uxy92gd4tdksfno&st=uysrilt7&dl=0) | 
+
+VLLM and LDM are trained on only one of the datasets, while LDM (scaleup) refers to the latent diffusion models trained with both Ego4D and Epic-Kitchens training sets, thus having better performance. We released two checkpoints of LDM (scaleup) that lead to the best performance on two test sets respectively. In inference, you can load LDM (scaleup) in the same way as regular LDM checkpoints.
 
 
 ## Train and Inference
@@ -399,9 +404,9 @@ python metrics/all_metrics_in_one.py --dataset epickitchen --llava_key llava_for
 ```
 
 
-## BibTex
+## BibTeX
 
-If you find LEGO useful for your work, please cite using this BibTex.
+If you find LEGO useful for your work, please cite using this BibTeX.
 
 ```
 @article{lai2023lego,
