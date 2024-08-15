@@ -443,6 +443,9 @@ def compute_metrics(dataset, gt_path, gen_path, edit_file, llava_key, cmpt_fid=T
         print('BLIP-L EgoVLP Similarity with Description:', egovlp_sim_desc)
         content['blip_large_egovlp_sim'] = egovlp_sim_desc
 
+    print('All metrics:')
+    print(content)
+    
     if save_res:
         save_path = os.path.join(os.path.dirname(gen_path), 'metric/metric.json')
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
