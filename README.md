@@ -1,10 +1,18 @@
 # LEGO: Learning EGOcentric Action Frame Generation via Visual Instruction Tuning
 
+### ECCV 2024 (Oral)
+
 ### [Project Page](https://bolinlai.github.io/Lego_EgoActGen/) | [Paper](https://arxiv.org/pdf/2312.03849) | [Dataset](https://www.dropbox.com/scl/fo/4m0v9oy753aimas8rz6v1/ANoJhZQz2BdcGIVLzUsHdP0?rlkey=o8saklcszfc098mjnpid767ic&dl=0)
 
-### <font color=red>**Our dataset has been released!**</font>
+### Update
 
-Thank you for your interest in our work! The first version of the code has been released. We are editing the README instructions.
+[08/15] Our work was selected as **oral presentation** in ECCV 2024.
+
+[08/15] We have released our model weights and completed README with detailed guidance.
+
+[07/21] <font color=red>**Our dataset has been released!**</font>
+
+<!-- Thank you for your interest in our work! The first version of the code has been released. We are editing the README instructions.
 
 ToDo:
 
@@ -14,7 +22,7 @@ ToDo:
 
 - [x] README
 
-- [x] Checkpoints
+- [x] Checkpoints -->
 
  <img src='https://bolinlai.github.io/Lego_EgoActGen/figures/visualization_new_actions.png'/>
 
@@ -252,7 +260,7 @@ conda activate ldm
 Download pretrained stable diffusion weights by
 
 ```shell
-wget -O [your_path]/stable-diffusion.zip "https://www.dropbox.com/scl/fi/773bpwnb2m4db2uvo0d64/stable_diffusion.zip?rlkey=qgk8mg5j4hrqqbsxkz0gt0os7&st=b5wltovy&dl=1"
+wget -O [your_path]/stable_diffusion.zip "https://www.dropbox.com/scl/fi/773bpwnb2m4db2uvo0d64/stable_diffusion.zip?rlkey=qgk8mg5j4hrqqbsxkz0gt0os7&st=b5wltovy&dl=1"
 unzip [your_path]/stable-diffusion.zip -d [your_path]
 rm [your_path]/stable-diffusion.zip
 ```
