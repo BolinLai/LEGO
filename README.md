@@ -72,7 +72,7 @@ bash scripts/download_dataset.sh [your_local_path]  # replace [your_local_path] 
 ```
 Our dataset is composed of video frames (in `EgoGen.zip`) and action labels/descriptions (in `*.json`) from Ego4D and Epic-Kitchens.
 
-The structure of the dataset is as follows. Note that `val_gt_for_metric` only contains ground truth images of `val`. It's simply used for metric calculation (FID score) and not invovled in training and inference.
+The structure of the dataset is as follows. Note that `val_gt_for_metric` only contains ground truth images of `val`. It's simply used for metric calculation (FID score) and not involved in training and inference.
 ```
 [your_local_path]
         |
