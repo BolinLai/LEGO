@@ -24,7 +24,7 @@ ToDo:
 
 - [x] Checkpoints -->
 
- <img src='https://bolinlai.github.io/Lego_EgoActGen/figures/visualization_new_actions.png'/>
+<img src='https://bolinlai.github.io/Lego_EgoActGen/figures/visualization_new_actions.png'/>
 
 
 
@@ -42,6 +42,13 @@ ToDo:
 - [Metrics](#metrics)
 - [BibTeX](#bibtex)
 - [Acknowledge](#acknowledgement)
+
+
+### TODO
+
+- [ ] Move model weights to huggingface for easier download.
+
+- [ ] Implement for inference on a single sample.
 
 
 
