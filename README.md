@@ -1,10 +1,12 @@
 # LEGO: Learning EGOcentric Action Frame Generation via Visual Instruction Tuning
 
-### ECCV 2024 (Oral)
+### ECCV 2024 (Oral, Best Paper Finalist)
 
 ### [Project Page](https://bolinlai.github.io/Lego_EgoActGen/) | [Paper](https://arxiv.org/pdf/2312.03849) | [Dataset](https://www.dropbox.com/scl/fo/4m0v9oy753aimas8rz6v1/ANoJhZQz2BdcGIVLzUsHdP0?rlkey=o8saklcszfc098mjnpid767ic&dl=0)
 
 ### Update
+
+[10/01] Our paper was nominated in the Best Paper Finalist.
 
 [08/15] Our work was selected as **oral presentation** in ECCV 2024.
 
