@@ -6,7 +6,7 @@
 
 ### Update
 
-[10/01] Our paper was nominated in the Best Paper Finalist.
+[10/01] Our paper was nominated in the **Best Paper Finalist**.
 
 [08/15] Our work was selected as **oral presentation** in ECCV 2024.
 
@@ -418,12 +418,14 @@ python metrics/all_metrics_in_one.py --dataset epickitchen --llava_key llava_for
 If you find LEGO useful for your work, please cite using this BibTeX.
 
 ```
-@article{lai2023lego,
-        title={LEGO: Learning EGOcentric Action Frame Generation via Visual Instruction Tuning},
-        author={Lai, Bolin and Dai, Xiaoliang and Chen, Lawrence and Pang, Guan and Rehg, James M and Liu, Miao},
-        journal={arXiv preprint arXiv:2312.03849},
-        year={2023}
-      }
+@inproceedings{lai2024lego,
+  title={Lego: Learning egocentric action frame generation via visual instruction tuning},
+  author={Lai, Bolin and Dai, Xiaoliang and Chen, Lawrence and Pang, Guan and Rehg, James M and Liu, Miao},
+  booktitle={European Conference on Computer Vision},
+  pages={135--155},
+  year={2024},
+  organization={Springer}
+}
 ```
 
 
