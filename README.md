@@ -417,7 +417,7 @@ python metrics/all_metrics_in_one.py --dataset epickitchen --llava_key llava_for
 
 If you find LEGO useful for your work, please cite using this BibTeX.
 
-```
+```BibTex
 @inproceedings{lai2024lego,
   title={Lego: Learning egocentric action frame generation via visual instruction tuning},
   author={Lai, Bolin and Dai, Xiaoliang and Chen, Lawrence and Pang, Guan and Rehg, James M and Liu, Miao},
