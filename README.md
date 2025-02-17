@@ -2,7 +2,7 @@
 
 ### ECCV 2024 (Oral, Best Paper Finalist)
 
-### [Project Page](https://bolinlai.github.io/Lego_EgoActGen/) | [Paper](https://arxiv.org/pdf/2312.03849) | [Dataset](https://www.dropbox.com/scl/fo/4m0v9oy753aimas8rz6v1/ANoJhZQz2BdcGIVLzUsHdP0?rlkey=o8saklcszfc098mjnpid767ic&dl=0)
+### [Project Page](https://bolinlai.github.io/Lego_EgoActGen/) | [Paper](https://arxiv.org/pdf/2312.03849) | [Dataset](https://huggingface.co/datasets/bolinlai/LEGO-Dataset)
 
 ### Update
 
@@ -64,11 +64,11 @@ conda env create -f ldm_env.yaml  # The env name is "ldm".
 
 ## Dataset
 
-Run the command below to download our dataset, or download via this [link](https://www.dropbox.com/scl/fo/4m0v9oy753aimas8rz6v1/ANoJhZQz2BdcGIVLzUsHdP0?rlkey=o8saklcszfc098mjnpid767ic&dl=0) and unzip `EgoGen.zip` to your local path. .
+You can either download our dataset from [huggingface](https://huggingface.co/datasets/bolinlai/LEGO-Dataset) (recommended), or run the command below to download from our [DropBox](https://www.dropbox.com/scl/fo/4m0v9oy753aimas8rz6v1/ANoJhZQz2BdcGIVLzUsHdP0?rlkey=o8saklcszfc098mjnpid767ic&dl=0) and unzip `EgoGen.zip` to your local path.
 ```shell
 bash scripts/download_dataset.sh [your_local_path]  # replace [your_local_path] to your local download path.
 ```
-Our dataset is composed of video frames (in `EgoGen.zip`) and action labels/descriptions (in `*.json`) from Ego4D and Epic-Kitchens.
+Our dataset is composed of video frames (in `EgoGen`) and action labels/descriptions (in `*.json`) from Ego4D and Epic-Kitchens.
 
 The structure of the dataset is as follows. Note that `val_gt_for_metric` only contains ground truth images of `val`. It's simply used for metric calculation (FID score) and not involved in training and inference.
 ```
@@ -86,6 +86,10 @@ The structure of the dataset is as follows. Note that `val_gt_for_metric` only c
         |             |-- val
         |             |-- val_gt_for_metric
         |
+        |-- curation_from_gpt
+        |             |-- ego4d_for_tuning_forecasting.json  # GPT-generated descriptions on ego4d for vllm finetuning
+        |             |-- epickitchen_for_tuning_forecasting.json  # GPT-generated descriptions on ejpickitchens for vllm finetuning
+        |
         |-- ego4d_train.json  # ego4d image paths and actions for training
         |-- ego4d_val.json  # ego4d image paths and actions for evaluation
         |-- ego4d_metadata.json  # ego4d metadata of selected video frames
@@ -99,7 +103,9 @@ The test sets of Ego4d and Epic-Kitchens are hidden so we use the validation set
 
 ## GPT-Curated Data (Optional)
 
-We release our detailed acton descriptions curated from GPT-3.5, which are used for VLLM instruction tuning. You can download by running the following command, or from this [link](https://www.dropbox.com/scl/fo/2iez9r5k5z9f0azxchb09/AKC_p3Y96wHpDXCOgOYnZB0?rlkey=ndh4vzedl3w66b4r90kzzz5s7&st=ozy2upb1&dl=0).
+We release our detailed acton descriptions curated from GPT-3.5, which are used for VLLM instruction tuning. 
+
+If you download the dataset from huggingface, they are in `curation_from_gpt`. If you download the dataset from our DropBox, You need to download them separately by running the following command, or from this [link](https://www.dropbox.com/scl/fo/2iez9r5k5z9f0azxchb09/AKC_p3Y96wHpDXCOgOYnZB0?rlkey=ndh4vzedl3w66b4r90kzzz5s7&st=ozy2upb1&dl=0).
 ```shell
 bash scripts/download_gpt_curated_data.sh
 ```
