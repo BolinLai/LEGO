@@ -24,6 +24,7 @@ zip -s0 $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-
 unzip $1/ego4d/vllm_image_feature/merge.zip
 rm $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.z01
 rm $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.zip
+rm $1/ego4d/vllm_image_feature/merge.zip
 
 unzip $1/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip
 rm $1/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip
