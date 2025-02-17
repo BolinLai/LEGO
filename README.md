@@ -22,6 +22,8 @@
 ## Contents
 - [Setup](#setup)
 - [Dataset](#dataset)
+  - [Download](#download)
+  - [Dataset Structure](#dataset-structure)
 - [GPT-Curated Data (Optional)](#gpt-curated-data-optional)
 - [VLLM Features](#vllm-features)
 - [Model Weights](#model-weights)
