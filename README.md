@@ -121,11 +121,11 @@ If you download from the link, please unzip each zip file in the same folder by 
 
 Please download our released model weights via the links below. We provide two sources in case either of them is down: HuggingFace and DropBox.
 
-#### HuggingFace
+#### HuggingFace (recommended)
 
 |      | Ego4D | Epic-Kitchens |
 |:----:|:----: | :----:        |
-|VLLM & LDM| [repo](https://huggingface.co/bolinlai/LEGO-Ego4D) | [repo](https://huggingface.co/bolinlai/LEGO-EpicKitchens) |
+|VLLM & LDM & LDM(scaleup)| [repo](https://huggingface.co/bolinlai/LEGO-Ego4D) | [repo](https://huggingface.co/bolinlai/LEGO-EpicKitchens) |
 
 #### DropBox
 
@@ -154,7 +154,7 @@ Activate `vllm` virtual environment.
 conda activate vllm
 ```
 
-Download pretrained llava weights by
+Download pretrained llava weights from this huggingface [repo](https://huggingface.co/liuhaotian/llava-llama-2-13b-chat-lightning-preview) (recommended). If it's not available, you can also download from our DropBox by
 
 ```shell
 wget -O [your_path]/llava_pretrained.zip "https://www.dropbox.com/scl/fi/q5yy8znjirymfe9kte2a2/llava_pretrained.zip?rlkey=qbskcxd85qxg5jphb50lvxd4a&st=qwdxpg2o&dl=1"
@@ -268,7 +268,7 @@ Activate `ldm` virtual environment.
 conda activate ldm
 ```
 
-Download pretrained stable diffusion weights by
+Download pretrained stable diffusion weights from this huggingface [repo](https://huggingface.co/bolinlai/SD1.5-pretrained) (recommended). If it's not available, you can also download from our DropBox by
 
 ```shell
 wget -O [your_path]/stable_diffusion.zip "https://www.dropbox.com/scl/fi/773bpwnb2m4db2uvo0d64/stable_diffusion.zip?rlkey=qgk8mg5j4hrqqbsxkz0gt0os7&st=b5wltovy&dl=1"
