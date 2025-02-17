@@ -6,25 +6,14 @@
 
 ### Update
 
-[10/01] Our paper was nominated in the **Best Paper Finalist**.
+[10/01] Our paper was nominated in the <font color=red>**Best Paper Finalist**</font>.
 
 [08/15] Our work was selected as **oral presentation** in ECCV 2024.
 
 [08/15] We have released our model weights and completed README with detailed guidance.
 
-[07/21] <font color=red>**Our dataset has been released!**</font>
+[07/21] **Our dataset has been released!**
 
-<!-- Thank you for your interest in our work! The first version of the code has been released. We are editing the README instructions.
-
-ToDo:
-
-- [x] Dataset
-
-- [x] Codes
-
-- [x] README
-
-- [x] Checkpoints -->
 
 <img src='https://bolinlai.github.io/Lego_EgoActGen/figures/visualization_new_actions.png'/>
 
@@ -48,7 +37,7 @@ ToDo:
 
 ### TODO
 
-- [ ] Move model weights to huggingface for easier download.
+- [x] Move model weights to huggingface for easier download.
 
 - [ ] Implement for inference on a single sample.
 
@@ -130,7 +119,15 @@ If you download from the link, please unzip each zip file in the same folder by 
 
 ## Model Weights
 
-Please download our released model weights via the links below. 
+Please download our released model weights via the links below. We provide two sources in case either of them is down: HuggingFace and DropBox.
+
+#### HuggingFace
+
+|      | Ego4D | Epic-Kitchens |
+|:----:|:----: | :----:        |
+|VLLM & LDM| [repo](https://huggingface.co/bolinlai/LEGO-Ego4D) | [repo](https://huggingface.co/bolinlai/LEGO-EpicKitchens) |
+
+#### DropBox
 
 |      | Ego4D | Epic-Kitchens |
 |:----:|:----: | :----:        |
@@ -165,7 +162,7 @@ unzip [your_path]/llava_pretrained.zip -d [your_path]
 rm [your_path]/llava_pretrained.zip
 ```
 
-Before running the script, you have to update the paths of dataset and pretrained weights in `vllm/scripts/finetune_ego4d.sh` (for training on Ego4D) and `vllm/scripts/finetune_epickitchen.sh` (for training on Epic-Kitchens) to your local paths.
+Before running the training script, you have to update the paths of dataset and pretrained weights in `vllm/scripts/finetune_ego4d.sh` (for training on Ego4D) and `vllm/scripts/finetune_epickitchen.sh` (for training on Epic-Kitchens) to your local paths.
 
 `--model_name_or_path`: The path of pretrained VLLM checkpoint for initialization.
 
@@ -279,7 +276,7 @@ unzip [your_path]/stable-diffusion.zip -d [your_path]
 rm [your_path]/stable-diffusion.zip
 ```
 
-Before launching the job, you have to update the paths in `configs/train_ego4d.yaml` and `configs/train_epickitchen.yaml` for training on Ego4D and Epic-Kitchens, respectively.
+Before launching training, you have to update the paths in `configs/train_ego4d.yaml` and `configs/train_epickitchen.yaml` for training on Ego4D and Epic-Kitchens, respectively.
 
 `model.params.ckpt_path`: The path of pretrained latent diffusion model weights for initialization.
 
