@@ -20,7 +20,7 @@ echo Downloading VLLM text features of Epic-Kitchens...
 wget -O $1/epickitchen/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune.zip "https://www.dropbox.com/scl/fi/2c1warf3mlho0q4t7knyl/llava-llama-2-13b-chat-forecasting-finetune.zip?rlkey=9wg2s70ei512yi4cq464zpp9t&st=br4nw308&dl=1"
 
 echo Unzipping features...
-zip -s0 $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.zip --out $1/ego4d/llava_image_feature/merge.zip
+zip -s0 $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.zip --out $1/ego4d/vllm_image_feature/merge.zip
 unzip $1/ego4d/vllm_image_feature/merge.zip -d $1/ego4d/vllm_image_feature/
 rm $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.z01
 rm $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.zip
