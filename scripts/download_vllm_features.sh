@@ -21,18 +21,18 @@ wget -O $1/epickitchen/vllm_text_feature/llava-llama-2-13b-chat-forecasting-fine
 
 echo Unzipping features...
 zip -s0 $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.zip --out $1/ego4d/llava_image_feature/merge.zip
-unzip $1/ego4d/vllm_image_feature/merge.zip
+unzip $1/ego4d/vllm_image_feature/merge.zip -d $1/ego4d/vllm_image_feature/
 rm $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.z01
 rm $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.zip
 rm $1/ego4d/vllm_image_feature/merge.zip
 
-unzip $1/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip
+unzip $1/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip -d $1/ego4d/vllm_text_feature/
 rm $1/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip
 
-unzip $1/epickitchen/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune.zip
+unzip $1/epickitchen/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune.zip -d $1/epickitchen/vllm_image_feature/
 rm $1/epickitchen/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune.zip
 
-unzip $1/epickitchen/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune.zip
+unzip $1/epickitchen/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune.zip -d $1/epickitchen/vllm_text_feature/
 rm $1/epickitchen/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune.zip
 
 echo Done!
