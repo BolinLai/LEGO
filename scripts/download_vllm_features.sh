@@ -9,7 +9,7 @@ wget -O $1/ego4d/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-
 
 mkdir -p $1/ego4d/vllm_text_feature
 echo Downloading VLLM text features of Ego4D...
-wget -p $1/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip "https://www.dropbox.com/scl/fi/i9n86tu88ty3qtg3jhnh8/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip?rlkey=03j47m7i0a75gejrf0agkwwhw&st=rzh4dmbv&dl=1"
+wget -O $1/ego4d/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip "https://www.dropbox.com/scl/fi/i9n86tu88ty3qtg3jhnh8/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip?rlkey=03j47m7i0a75gejrf0agkwwhw&st=rzh4dmbv&dl=1"
 
 mkdir -p $1/epickitchen/vllm_image_feature
 echo Downloading VLLM image features of Epic-Kitchens...
