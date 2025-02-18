@@ -89,7 +89,7 @@ The structure of the dataset is as follows. Note that `val_gt_for_metric` only c
 ```
 [your_local_path]
         |
-        |-- EgoGen
+        |-- EgoGen  # video frames
         |     |
         |     |-- ego4d.fho
         |     |       |-- train
@@ -416,6 +416,7 @@ If this is your first time to run metric calcuation, you need to download some m
 You can download from [HuggingFace](https://huggingface.co/bolinlai/LEGO-Metrics) (recommended), and then use the following commands to move the checkpoints to the right location.
 ```shell
 mv [your_path]/jx_vit_base_p16_224-80ecf9dd.pth metrics/egovlp/pretrained/
+unzip [your_path]/distilber-base-uncased.zip -d [your_path]/
 mv [your_path]/distilbert-base-uncased metrics/egovlp/pretrained/
 mv [your_path]/egovlp.pth metrics/egovlp/pretrained/
 mv [your_path]/epic_mir_plus.pth metrics/egovlp/pretrained/
