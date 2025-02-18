@@ -142,14 +142,11 @@ Then unzip the files.
 ```shell
 # Ego4D
 zip -s0 [your_path]/LEGO-VLLM-Features-Ego4D/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450-split.zip --out [your_path]/LEGO-VLLM-Features-Ego4D/vllm_image_feature/merge.zip  # Merge the two shards into one zip file
-
 unzip [your_path]/LEGO-VLLM-Features-Ego4D/vllm_image_feature/merge.zip -d [your_path]/LEGO-VLLM-Features-Ego4D/vllm_image_feature/  # unzip vllm image features
-
 unzip [your_path]/LEGO-VLLM-Features-Ego4D/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune-ckpt450.zip -d $1/ego4d/vllm_text_feature/  # unzip vllm text features
 
 # Epic-Kitchens
 unzip [your_path]/LEGO-VLLM-Features-EpicKitchens/vllm_image_feature/llava-llama-2-13b-chat-forecasting-finetune.zip -d [your_path]/LEGO-VLLM-Features-EpicKitchens/vllm_image_feature/  # unzip vllm image features
-
 unzip [your_path]/LEGO-VLLM-Features-EpicKitchens/vllm_text_feature/llava-llama-2-13b-chat-forecasting-finetune.zip -d $1/epickitchen/vllm_text_feature/  # unzip vllm text features
 ```
 
