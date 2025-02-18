@@ -72,7 +72,7 @@ You can download our dataset either from HuggingFace or DropBox.
 
 #### HuggingFace (recommended)
 
-Download from this [repo](https://huggingface.co/datasets/bolinlai/LEGO-Dataset) using huggingface_hub or git-lfs.
+Download from this [repo](https://huggingface.co/datasets/bolinlai/LEGO-Dataset) using huggingface_hub or git-lfs. Then unzip EgoGen.zip under this directory.
 
 #### DropBox
 
