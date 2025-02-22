@@ -4,6 +4,9 @@
 
 ### [Project Page](https://bolinlai.github.io/Lego_EgoActGen/) | [Paper](https://arxiv.org/pdf/2312.03849) | [Dataset](https://huggingface.co/datasets/bolinlai/LEGO-Dataset) | [HuggingFace](https://huggingface.co/collections/bolinlai/lego-67b386cf642909c56776f754)
 
+#### [Bolin Lai](https://bolinlai.github.io/), [Xiaoliang Dai](https://sites.google.com/view/xiaoliangdai/), [Lawrence Chen](https://www.lawrencechen.me/), [Guan Pang](https://scholar.google.com/citations?user=7v1LZxUAAAAJ&hl=en), [James M. Rehg](https://rehg.org/), [Miao Liu](https://aptx4869lm.github.io/)
+
+
 ### Update
 
 [10/01] Our paper was nominated in the <font color=red>**Best Paper Finalist**</font>.
