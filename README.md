@@ -40,13 +40,6 @@
 - [Acknowledge](#acknowledgement)
 
 
-### TODO
-
-- [x] Move model weights to huggingface for easier download.
-
-- [ ] Implement for inference on a single sample.
-
-
 
 ## Setup
 
